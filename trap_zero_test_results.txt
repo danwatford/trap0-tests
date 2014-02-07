@@ -1,0 +1,107 @@
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ uname -a
+Linux ubuntu 3.2.0-23-generic-pae #36-Ubuntu SMP Tue Apr 10 22:19:09 UTC 2012 i686 i686 i386 GNU/Linux
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ bash -version
+GNU bash, version 4.2.24(1)-release (i686-pc-linux-gnu)
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ bash trap_zero_test.sh 2>/dev/null
+Signal	Name	Trap 0 Executed
+1	HUP	Yes
+2	INT	Yes
+3	QUIT	No
+4	ILL	Yes
+5	TRAP	Yes
+6	ABRT	Yes
+7	BUS	Yes
+8	FPE	Yes
+9	KILL	No
+10	USR1	Yes
+11	SEGV	Yes
+12	USR2	Yes
+13	PIPE	Yes
+14	ALRM	Yes
+15	TERM	Yes
+
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ sh trap_zero_test.sh 2>/dev/null
+Signal	Trap 0 Executed
+1	Yes
+2	Yes
+3	No
+4	Yes
+5	Yes
+6	Yes
+7	Yes
+8	Yes
+9	No
+10	Yes
+11	Yes
+12	Yes
+13	Yes
+14	Yes
+15	Yes
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ dash trap_zero_test.sh 2>/dev/null
+Signal	Trap 0 Executed
+1	Yes
+2	Yes
+3	No
+4	Yes
+5	Yes
+6	Yes
+7	Yes
+8	Yes
+9	No
+10	Yes
+11	Yes
+12	Yes
+13	Yes
+14	Yes
+15	Yes
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ ksh trap_zero_test.sh 2>/dev/null
+Signal	Trap 0 Executed
+1	Yes
+2	Yes
+3	No
+4	Yes
+5	Yes
+6	Yes
+7	Yes
+8	Yes
+9	No
+10	Yes
+11	Yes
+12	Yes
+13	Yes
+14	Yes
+15	Yes
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ dpkg -l sh bash ksh
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                 Version              Description
++++-====================-====================-========================================================
+ii  bash                 4.2-2ubuntu2         GNU Bourne Again SHell
+un  ksh                  <none>               (no description available)
+No packages found matching sh.
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ dpkg -l dash bash ksh
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                 Version              Description
++++-====================-====================-========================================================
+ii  bash                 4.2-2ubuntu2         GNU Bourne Again SHell
+ii  dash                 0.5.7-2ubuntu2       POSIX-compliant shell
+un  ksh                  <none>               (no description available)
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ dpkg -l dash bash pdksh
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                 Version              Description
++++-====================-====================-========================================================
+ii  bash                 4.2-2ubuntu2         GNU Bourne Again SHell
+ii  dash                 0.5.7-2ubuntu2       POSIX-compliant shell
+ii  pdksh                5.2.14-26            Public domain version of the Korn shell
+ubuntu@ubuntu:~/.gvfs/dev on acer/scripting$ 
+

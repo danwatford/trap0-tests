@@ -1,0 +1,12 @@
+in_t0() {
+    echo Adding to trap 0: $@
+    _T0="$@; $_T0"
+    trap "set -x; $_T0" 0
+}
+
+launch_and_check() {
+    "$@"
+    result=$?
+    echo "Result $result for: $@"
+    [ $result -eq 0 ] || exit 1
+}
